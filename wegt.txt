@@ -1,0 +1,53 @@
+wget -r -p -np -k -e robots=off
+
+wget -r -nd -np -e robots=off
+ # 启动：
+	 -b,  --background                启动后转入后台
+	 -c,  --continue                  断点续传下载文件, 接着下载没下载完的文件
+	 
+	 -e, –execute=COMMAND 执行`.wgetrc’格式的命令，wgetrc格式参见/etc/wgetrc或~/.wgetrc
+ # 目录：
+	   -nd, --no-directories            不创建目录
+	   -x,  --force-directories         强制创建目录
+ # 递归下载：
+	   -r,  --recursive                 指定递归下载
+	   -l,  --level=数字                 最大递归深度 (inf 或 0 代表无限制，即全部下载)。
+		--delete-after              下载完成后删除本地文件
+	   -k,  --convert-links             让下载得到的 HTML 或 CSS 中的链接指向本地文件,转换非相对链接为相对链接
+		--convert-file-only         只转换 URL 的文件部分（一般叫做“基础名”/basename）
+		--backups=N                 写入文件 X 前，轮换移动最多 N 个备份文件
+	   -K,  --backup-converted          在转换文件 X 前先将它备份为 X.orig。
+	   -m,  --mirror                    -N -r -l inf --no-remove-listing 的缩写形式。
+	   -p,  --page-requisites           下载所有用于显示 HTML 页面的图片之类的元素。
+		--strict-comments           用严格方式 (SGML) 处理 HTML 注释
+		
+	   -np, --no-parent                 不追溯至父目录
+	   -nc, –no-clobber 不要覆盖存在的文件或使用.#前缀
+	   
+	  
+	  
+实例：使用wget -Q限制总下载文件大小
+
+	命令：
+
+	wget -Q5m -i filelist.txt
+
+	说明：
+
+	当你想要下载的文件超过5M而退出下载，你可以使用。注意：这个参数对单个文件下载不起作用，只能递归下载时才有效。
+
+实例14：使用wget -r -A下载指定格式文件
+
+	命令：
+
+	wget -r -A.pdf url
+
+	说明：
+
+	可以在以下情况使用该功能：
+
+	下载一个网站的所有图片
+
+	下载一个网站的所有视频
+
+	下载一个网站的所有PDF文件
